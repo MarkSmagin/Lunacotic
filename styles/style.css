@@ -64,40 +64,40 @@
     position: relative;
 }
 .cats::before{
-    content: url("/images/cats.svg");
+    content: url("../images/cats.svg");
     position: absolute;
     left: -16px;
-    top: -16px;
+    top: -18px;
 }
 .dogs::before{
-    content: url("/images/dogs.svg");
+    content: url("../images/dogs.svg");
     position: absolute;
-    left: -16px;
-    top: -20px;
+    left: -24px;
+    top: -22px;
 }
 .rodents::before{
-    content: url("/images/rodents.svg");
+    content: url("../images/rodents.svg");
     position: absolute;
     left: -17px;
     top: -15px;
 }
 .birds::before{
-    content: url("/images/birds.svg");
+    content: url("../images/birds.svg");
     position: absolute;
-    left: -30px;
+    left: -35px;
     top: -9px;
 }
 .fish::before{
-    content: url("/images/fish.svg");
+    content: url("../images/fish.svg");
     position: absolute;
     left: -30px;
     top: -9px;
 }
 .reptiles::before{
-    content: url("/images/reptiles.svg");
+    content: url("../images/reptiles.svg");
     position: absolute;
-    left: -45px;
-    top: -18px;
+    left: -46px;
+    top: -27px;
 }
 .header__logo{
     margin-right: 20px;
@@ -368,12 +368,12 @@
     padding: 50px 100px;
 }
 .banner1{
-    background: url('/images/banner1.png') no-repeat;
+    background: url('../images/banner1.png') no-repeat;
     background-size: cover;
     margin-bottom: 35px;
 }
 .banner2{
-    background: url('/images/banner2.png') no-repeat;
+    background: url('../images/banner2.png') no-repeat;
     background-size: cover;
 }
 .banner__text{
