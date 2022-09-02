@@ -19,6 +19,16 @@
     cursor: pointer;
     z-index: 2;
 }
+/* Хлебные крошки */
+.breadcrumbs{
+    margin: 30px 0;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: #C2C2C2;
+}
 /* Header */
 .header{
     display: flex;
@@ -168,7 +178,7 @@
 }
 
 /* Слайдер */
-.slider{
+.stocks{
     position: relative;
     margin-bottom: 40px;
 }
@@ -252,9 +262,6 @@
     font-weight: 700;
     color: #262424;
 }
-.special__btn:hover .special__btn{
-    flex: 1 1 20%;
-}
 
 /* Категории */
 .categories{
@@ -282,6 +289,11 @@
     align-items: center;
     justify-content: center;
     transition: .1s;
+}
+.categories__img__wrap img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 .categories__item:hover .categories__img{
     -webkit-animation: swing 0.6s ease;
@@ -354,11 +366,15 @@
     font-size: 18px;
     line-height: 25px;
     color: #262424;
+    text-align: center;
 }
 
 /* Баннеры */
 .banners{
     margin-bottom: 40px;
+}
+.banners__margin{
+    margin-top: 40px;
 }
 .banner__wrap{
     width: 100%;
@@ -385,12 +401,15 @@
     color: #1B2127;
 }
 
-/* Лучшие предложения */
-.best_offer{
+/* Слайдер товаров */
+.product_slider{
     background: #F91F2C;
     padding: 20px 0;
 }
-.best_offer__title{
+.product_slider__subpage{
+    background: #E4E753;
+}
+.product_slider__title{
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 700;
@@ -399,7 +418,10 @@
     color: #FFFFFF;
     margin-bottom: 30px;
 }
-.best_offer__item{
+.product_slider__subpage__title{
+    color: #1B2127;
+}
+.product_slider__item{
     padding: 6px 10px;
     margin: 0 5px;
     display: flex;
@@ -410,7 +432,7 @@
     border: 1px solid #F2F2F2;
     border-radius: 10px;
 }
-.best_offer__id{
+.product_slider__id{
     font-family: 'Ubuntu';
     font-style: italic;
     font-weight: 300;
@@ -419,14 +441,18 @@
     color: #C2C2C2;
     width: 80%;
 }
-.best_offer__like{
+.product_slider__like{
     width: 20%;
     text-align: end;
 }
-.best_offer__img_wrap{
+.product_slider__like img{
+    margin-left: auto;
+    cursor: pointer;
+}
+.product_slider__img_wrap{
     width: 80%;
 }
-.best_offer__discount{
+.product_slider__discount{
     align-self: flex-end;
     background: #F91F2C;
     color: #FFFFFF;
@@ -449,7 +475,7 @@
     width: 100%;
     margin-top: 8px;
 }
-.best_offer__text{
+.product_slider__text{
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 300;
@@ -458,8 +484,12 @@
     color: #000000;
     margin-top: 8px;
     margin-bottom: 8px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
-.best_offer__weight{
+.product_slider__weight{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -479,6 +509,18 @@
     color: #1B2127;
     cursor: pointer;
     margin: 1px;
+    overflow: hidden;
+    position: relative;
+}
+.sub__text::before{
+    position: absolute;
+    left: -1px;
+    bottom: -1px;
+    content: '';
+    width: 0;
+	height: 0;
+	border-bottom: 10px solid #1B2127; 
+	border-right: 10px solid transparent;
 }
 .weight__item:hover{
     font-family: 'Ubuntu';
@@ -489,7 +531,7 @@
     color: #FFFFFF;
     background: #C2C2C2;
 }
-.best_offer__prices{
+.product_slider__prices{
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -521,13 +563,13 @@
     height: 50%;
     transform: rotate(-12deg);
 }
-.best_offer__buttons{
+.product_slider__buttons{
     display: flex;
     flex-direction: column;
     width: 70%;
     align-items: flex-end;
 }
-.best_offer__add{
+.product_slider__add{
     padding: 6px 8px 8px 20px;
     background: #1B2127;
     border-radius: 7px;
@@ -535,8 +577,9 @@
     align-items: center;
     color: #E4E753;
     margin-bottom: 5px;
+    cursor: pointer;
 }
-.best_offer__add span{
+.product_slider__add span{
     margin-right: 9px;
     font-family: 'Ubuntu';
     font-style: normal;
@@ -544,7 +587,7 @@
     font-size: 12px;
     line-height: 11px;
 }
-.best_offer__buy_1_click{
+.product_slider__buy_1_click{
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 400;
@@ -553,18 +596,18 @@
     color: #C5C900;
     cursor: pointer;
 }
-.best_offer__footer{
+.product_slider__footer{
     margin-top: 5px;
     width: 100%;
     display: flex;
 }
-.best_offer__item__prev{
+.product_slider__item__prev{
     position: absolute;
     left: -5%;
     top: 36%;
     cursor: pointer;
 }
-.best_offer__item__next{
+.product_slider__item__next{
     position: absolute;
     top: 36%;
     right: -5%;
@@ -765,7 +808,213 @@
 .ymaps-2-1-79-copyright__layout{
     display: none;
 }
-
+/* Подкатегории */
+.subcategories__item{
+    height: 300px;
+    flex: 1 1 300px;
+    border: 1px solid #C2C2C2;
+}
+/* Корм */
+.feed{
+    margin-bottom: 40px;
+}
+.feed__wrap{
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    border-radius: 10px;
+    padding: 10px;
+}
+.feed__title{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 25px;
+    color: #1B2127;
+    width: 10%;
+}
+.feed__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.feed__img{
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 70px;
+    background-image: url('../images/feed.png');
+}
+.feed__body{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 -3px;
+}
+.feed__btn{
+    text-align: center;
+    background: #5F5F5F;
+    border-radius: 7px;
+    flex: 1 1 10%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    transition: .4s;
+    cursor: pointer;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #C2C2C2;
+}
+.feed__btn:hover{
+    background: #E4E753;
+    flex: 1 1 20%;
+    font-weight: 700;
+    color: #262424;
+}
+/* Брэнды */
+.brands{
+    margin-top: 40px;
+}
+.brand__body .slick-list{
+    margin-bottom: 10px;
+    height: 500px;
+}
+.slick-dots{
+    display: flex;
+}
+.brand__banner{
+    height: 500px;
+}
+.slick-dots li{
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    border-radius: 18px;
+    padding: 2px;
+    height: 50px;
+    overflow: hidden;
+    flex: 1 1 100%;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.slick-dots li:last-child{
+    margin-right: 0px;
+}
+/* Каталог */
+/* Категории в каталоге */
+.product_categories__wrap{
+    padding: 20px 0;
+}
+.product_categories__title{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    color: #5F5F5F;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+.product_categories__body{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    height: 100px;
+}
+.product_categories__btn{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    background: #5F5F5F;
+    border-radius: 7px;
+    padding: 10px 20px;
+    justify-content: center;
+    margin: 0 3px;
+    transition: .4s;
+    cursor: pointer;
+    max-width: 280px;
+    flex-grow: 1;
+}
+.product_categories__btn:hover{
+    background: #E4E753;
+    font-weight: 700;
+    color: #262424;
+}
+/* Бренды */
+.product_brands__wrap{
+    display: flex;
+    
+}
+.swiper{
+    width: 100%;
+    height: 50px;
+}
+.brands__item{
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    border-radius: 18px;
+    padding: 2px;
+    height: 50px;
+    overflow: hidden;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+/* Товары */
+.products__wrap{
+    display: flex;
+}
+.products__filters{
+    width: 20%;
+}
+.products__right{
+    width: 80%;
+}
+.products__appearance{
+    text-align: end;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #5F5F5F;
+}
+.products__appearance span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.active{
+    font-style: bold;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #5F5F5F;
+}
+.products__body{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.product_slider__item{
+    flex: 1 1 25%
+}
 /* Footer */
 .footer{
     background: #1B2127;
