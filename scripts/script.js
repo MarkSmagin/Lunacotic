@@ -7,6 +7,7 @@ $(document).ready(function(){
     autoplaySpeed: 5000,
     dotsClass: 'slick__dots',
   });
+
   // Слайдер лучших предложений
   $('.product_slider__body').slick({
     slidesToShow: 5,
@@ -16,6 +17,7 @@ $(document).ready(function(){
     prevArrow:"<img class='product_slider__item__prev slick-prev' src='images/left.svg'>",
     nextArrow:"<img class='product_slider__item__next slick-next' src='images/right.svg'>"
   });
+
   // Слайдер брэндов
   $('.brand__body').slick({
     autoplay: false,
@@ -26,11 +28,13 @@ $(document).ready(function(){
       return '<a><img src="'+thumb+'"></a>';
     },
   });
+
   // Аккордион блок Вопрос-ответ
   $('.questions__body').accordion({
     heightStyle: 'content',
     header: '> .questions__item > .question__text'
   });
+
    // Аккордион фильтров
   $('.products__filters').accordion({
     heightStyle: 'content',
@@ -57,7 +61,6 @@ $(document).ready(function(){
     }
   });
 
-
   // Карта
   if($('#map').length){
     ymaps.ready(init);
@@ -81,6 +84,7 @@ $(document).ready(function(){
       myMap.geoObjects.add(myPlacemark);
     }
   }
+
   // Боковые кнопки
   $(window).scroll(function() {
     if($(this).scrollTop() >= 500) {
@@ -121,6 +125,7 @@ $(document).ready(function(){
       freeMode: true,
     });
   }
+
   // Ползунок фильтр цен
   $(".polzunok-5").slider({
     min: 0,
@@ -184,4 +189,17 @@ $(document).ready(function(){
         $(".polzunok-5").slider("values", 1, input_right);
     }
   });
+
+  // Смена вида расположения товаров в каталоге
+  $('.products__appearance span').click(function(){
+    $('.products__appearance span').removeClass('active');
+    $('.products__body').addClass('hidden');
+    if($(this).hasClass('tile')){
+      $('.tile').removeClass('hidden');
+    } else if($(this).hasClass('list')){
+      $('.list').removeClass('hidden');
+    }
+    $(this).addClass('active');
+    let currentView = $(this).attr('class');
+  })
 })

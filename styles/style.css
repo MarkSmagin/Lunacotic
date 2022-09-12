@@ -19,6 +19,9 @@
     cursor: pointer;
     z-index: 2;
 }
+.hidden{
+  display: none !important;
+}
 /* Хлебные крошки */
 .breadcrumbs{
     margin: 30px 0;
@@ -1206,6 +1209,110 @@
     flex: 1 1 20%;
     margin: 5px;
 }
+.product__item__list{
+  display: flex;
+  background: #FFFFFF;
+  border: 1px solid #F2F2F2;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.product__item__list .weight__item{
+  
+}
+.product__item__list:last-child{
+  margin: 0;
+}
+.product__item__list .product_slider__img_wrap{
+  width: 15%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product__item__list .product_slider__img_wrap img{
+  
+}
+.product__item__left{
+  width: 55%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product__item__right{
+  width: 20%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product__item__right .right__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product__item__list .product_slider__id{
+  width: auto;
+}
+.product__item__list .product_slider__like{
+  width: auto;
+}
+.product__item__list .product_slider__discount{
+  position: absolute;
+  left: 0;
+}
+.product__item__list:hover{
+  background: #F2F2F2;
+}
+.product__item__description .description__title{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  line-height: 11px;
+  color: #000000;
+}
+.product__item__description .description__title{
+  font-weight: 700;
+  font-size: 13px;
+}
+.product__item__description .description__text{
+  font-weight: 300;
+  font-size: 12px;
+}
+.product__item__list .product_slider__text {
+  font-size: 18px;
+}
+.product__item__list .product_slider__prices{
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+.product__item__list .price__new{
+  margin: 0 20px 0 0;
+}
+.product__item__list .price__old{
+  font-size: 14px;
+  line-height: normal;
+  align-self: flex-end;
+  justify-self: center;
+}
+.product__item__list .product_slider__footer{
+  flex-direction: column;
+}
+.product__item__list .product_slider__buttons{
+  width: 100%;
+}
+.product__item__list .product_slider__add{
+  padding: 10px 0;
+  width: 100%;
+  justify-content: center;
+}
+.product__item__list .product_slider__buy_1_click{
+  text-align: center;
+  width: 100%;
+}
+
 .show__more__items{
   font-family: 'Ubuntu';
   font-style: normal;
