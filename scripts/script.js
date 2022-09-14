@@ -1,4 +1,23 @@
 $(document).ready(function(){
+  // Слайдер в карточке товара
+  if($('.swiper').length){
+    let swiper = new Swiper(".mySwiper", {
+      spaceBetween: 10,
+      slidesPerView: 5,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    let swiper2 = new Swiper(".mySwiper2", {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+  }
   // Слайдер карточек товара
   $('.stocks').slick({
     dots: true,
@@ -26,6 +45,17 @@ $(document).ready(function(){
     customPaging : function(slider, i) {
       let thumb = $(slider.$slides[i]).data('thumb');
       return '<a><img src="'+thumb+'"></a>';
+    },
+  });
+
+  // Слайдер на странице акций
+  var swiper = new Swiper(".stocks__banner .mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
   });
 
@@ -118,13 +148,32 @@ $(document).ready(function(){
   })
 
     // Горизонтальная прокрутка
-  if($('.swiper').length){
-    const swiper = new Swiper('.swiper', {
+  if($('.product__list__swiper').length){
+    const swiper = new Swiper('.product__list__swiper', {
       slidesPerView: 12,
       spaceBetween: 10,
       freeMode: true,
-    });
+    }); 
   }
+
+  // Горизонтальная прокрутка на странице О нас "Поставщики и партнеры"
+  if($('.about__suppliers__swiper').length){
+    const swiper = new Swiper('.about__suppliers__swiper', {
+      slidesPerView: 6,
+      spaceBetween: 10,
+      freeMode: true,
+    }); 
+  }
+
+// Горизонтальная прокрутка на странице О нас "Комьюнити"
+if($('.about__community__swiper').length){
+  const swiper = new Swiper('.about__community__swiper', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    freeMode: true,
+    slidesPerView: 'auto'
+  }); 
+}
 
   // Ползунок фильтр цен
   $(".polzunok-5").slider({
@@ -201,5 +250,81 @@ $(document).ready(function(){
     }
     $(this).addClass('active');
     let currentView = $(this).attr('class');
+  })
+
+  // Выбор веса товара
+  $('.weight__item').click(function(){
+    $('.weight__item').removeClass('weight__item__active');
+    $(this).addClass('weight__item__active');
+    if($(this).hasClass('by__weight')){
+      $('.ordering__clarification').removeClass('hidden');
+      $('.price__for__one .weight').html('за 100 г');
+    } else{
+      $('.ordering__clarification').addClass('hidden');
+      $('.price__for__one .weight').html('за шт');
+    }
+  })
+
+  // Счетчик в картчоке товара
+  if($('.product__card__ordering').length){
+    let counter = $('#buttonCountNumber').val();
+    let price = $('#price').html().replace(/\s+/g, "");
+    let maxCount = $('#availability__count').html();
+    $('#buttonCountPlus').click(function(){
+      if(counter < maxCount){
+        counter++;
+        $('#buttonCountNumber').val(counter);
+        $('#calculation').html(new Intl.NumberFormat('ru-RU').format(counter * price));
+      }
+    })
+  
+    $('#buttonCountMinus').click(function(){
+      if(counter >= 2){
+        counter--;
+        $('#buttonCountNumber').val(counter);
+        $('#calculation').html(new Intl.NumberFormat('ru-RU').format(counter * price));
+      }
+    })
+  }
+  
+  // Описание товара
+  $('.description__title').click(function(){
+    $('.description__title').removeClass('description__title__active');
+    $('.description__text').addClass('hidden');
+    $(this).addClass('description__title__active');
+    changeText($(this).data('text'));
+  })
+
+  function changeText(textID){
+    $('.description__text[data-text="'+ textID +'"]').removeClass('hidden');
+  }
+
+  // Отключение возможности добавления в корзину при отсутствии товара
+  $('.disabled button').attr('disabled', 'disabled');
+  $('.disabled #price').html(0);
+  $('.ordering__wrap #calculation').html(0);
+
+  // Скрытие/раскрытие текста
+  $('.reviews__text__wrap').each(function(){
+    if($(this).height() > 130){
+      $(this).css('max-height', '125px  ');
+      console.log($(this).closest('.reviews__massage').find('.show__more__text'))
+      $(this).children('.text__shadow').removeClass('hidden');
+      $(this).closest('.reviews__massage').find('.show__more__text').removeClass('hidden');
+    }
+  })
+
+  $('.show__more__text').on('click', function(){
+    $(this).prev('.reviews__text__wrap').children('.text__shadow').toggleClass('hidden');
+    $(this).prev('.reviews__text__wrap').toggleClass('opened');
+    $(this).prev('.reviews__text__wrap').css('max-height', 'unset')
+
+    if($(this).prev().hasClass('opened')){
+      $(this).text('Свернуть');
+      $(this).prev('.reviews__text__wrap').css('max-height', 'unset')
+    }else{
+      $(this).text('Развернуть');
+      $(this).prev('.reviews__text__wrap').css('max-height', '125px')
+    }
   })
 })
