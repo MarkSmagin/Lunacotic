@@ -49,16 +49,17 @@ $(document).ready(function(){
   });
 
   // Слайдер на странице акций
-  var swiper = new Swiper(".stocks__banner .mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-
+  if($('.stocks__banner').length){
+    var swiper = new Swiper(".stocks__banner .mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  }
   // Аккордион блок Вопрос-ответ
   $('.questions__body').accordion({
     heightStyle: 'content',
@@ -326,5 +327,35 @@ if($('.about__community__swiper').length){
       $(this).text('Развернуть');
       $(this).prev('.reviews__text__wrap').css('max-height', '125px')
     }
+  })
+
+  // Навигация в личном кабинете
+  $('.account__nav__button').click(function(){
+    $('.account__nav__button').removeClass('account__nav__button__active');
+    $(this).addClass('account__nav__button__active');
+    $('.account__wrap').load(`${$(this).attr('data-name')}.html`);
+  })
+
+  // Таблица в личном кабинете
+  $(document).on('click', '.order__history__item', function(){
+    $(this).children('.more__info').slideToggle(200);
+    if($(this).hasClass('order__in__progress')){
+      $(this).toggleClass('order__item__grey');
+    } else if($(this).hasClass('order__completed')){
+      $(this).toggleClass('order__item__yellow');
+    } else if($(this).hasClass('order__canceled')){
+      $(this).toggleClass('order__item__red');
+    }
+    if($(this).hasClass('order__item__grey') || $(this).hasClass('order__item__yellow') || $(this).hasClass('order__item__red')){
+      $(this).children('.order__detail').html('Свернуть');
+      $(this).children('.order__detail').addClass('order__detail__active');
+    } else {
+      $(this).children('.order__detail').html('Подробнее');
+      $(this).children('.order__detail').removeClass('order__detail__active');
+    }
+  })
+
+  $(document).on('click', '.order__repeat', function(e){
+    e.stopPropagation();
   })
 })
