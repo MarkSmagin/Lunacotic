@@ -464,6 +464,11 @@ body{
 }
 .product_slider__img_wrap{
     width: 80%;
+    height: 130px;
+}
+.product_slider__img{
+    height: 100%;
+    object-fit: contain;
 }
 .product_slider__discount{
     align-self: flex-end;
@@ -505,8 +510,6 @@ body{
 .product_slider__weight{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin: -1px;
 }
 .weight__item{
     background: #FFFFFF;
@@ -1452,10 +1455,10 @@ body{
 }
 .product__card__ordering .weight__item{
   height: 35px;
-  margin: 2px 1px;
+  margin: 2px;
 }
 .product__card__ordering .product_slider__weight{
-  margin: -2px -1px;
+  margin: -2px;
 }
 .ordering__clarification{
   font-family: 'Ubuntu';
@@ -3158,5 +3161,132 @@ body{
 }
 
 .hidden{
-  display: none;
+  display: none !important;
+}
+
+.auth__body{
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__form{
+  margin-bottom: 15px;
+}
+
+.auth__wrap{
+  width: 450px;
+  margin: 0 auto;
+}
+
+.auth__title {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  color: #262424;
+  margin-bottom: 15px;
+}
+
+.auth__loggin {
+  background: #1B2127;
+  border-radius: 7px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 11px;
+  color: #FFFFFF;
+  padding: 7px 20px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+}
+
+.auth__links{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.auth__links a{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 11px;
+  display: flex;
+  align-items: center;
+  color: #C5C900;
+}
+
+.remember__pc{
+  margin-bottom: 15px;
+}
+
+.auth__banner__wrap{
+  margin: 20px 0;
+  width: 100%;
+}
+
+.auth__banner__wrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* для элемента input c type="radio" */
+.remember__pc > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+/* для элемента label связанного с .account__info__adress__item */
+.remember__pc > span {
+  display: inline-flex;
+  align-items: flex-start;
+  user-select: none;
+  position: relative;
+  padding-left: 25px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #5F5F5F;
+}
+/* создание в label псевдоэлемента  before со следующими стилями */
+.remember__pc > span::before {
+  content: '';
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+}
+/* стили для радиокнопки, находящейся в состоянии checked */
+.remember__pc > input:checked+span::before {
+  border-color: #C2C2C2;
+  background-color: #F8F8F8;
+  content: '\f00c';
+  font: var(--fa-font-solid);
+  color: #C5C900;
+  font-size: 13px;
+}
+/* стили для радиокнопки, находящейся в состоянии disabled */
+.remember__pc > input:disabled+span::before {
+  background-color: #e9ecef;
+}
+
+.slick-slide{
+  height: 430px;
 }
