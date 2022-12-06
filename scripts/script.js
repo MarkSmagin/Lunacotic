@@ -300,6 +300,18 @@ if($('.about__community__swiper').length){
     $('.description__text[data-text="'+ textID +'"]').removeClass('hidden');
   }
 
+  // Персональные предложения
+  $('.personal__offers__title').click(function(){
+    $('.personal__offers__title').removeClass('personal__offers__active');
+    $('.personal__offers__item').addClass('hidden');
+    $(this).addClass('personal__offers__active');
+    changeOffer($(this).data('text'));
+  })
+
+  function changeOffer(textID){
+    $('.personal__offers__item[data-text="'+ textID +'"]').removeClass('hidden');
+  }
+
   // Отключение возможности добавления в корзину при отсутствии товара
   $('.disabled button').attr('disabled', 'disabled');
   $('.disabled #price').html(0);
