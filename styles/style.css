@@ -1224,7 +1224,8 @@ body{
     display: flex;
     flex-direction: column;
 }
-.products__appearance{
+.products__appearance,
+.search__appearance{
     text-align: end;
     font-family: 'Ubuntu';
     font-style: normal;
@@ -1234,7 +1235,8 @@ body{
     color: #5F5F5F;
     margin-bottom: 15px;
 }
-.products__appearance span:hover{
+.products__appearance span:hover,
+.search__appearance span:hover{
     cursor: pointer;
     text-decoration: underline;
 }
@@ -1245,7 +1247,9 @@ body{
     line-height: 16px;
     color: #5F5F5F;
 }
-.products__body{
+.products__body,
+.search__body,
+.search__offer__body{
     display: flex;
     flex-wrap: wrap;
     margin: -5px;
@@ -1254,6 +1258,12 @@ body{
 .products__body .product_slider__item{
     flex: 1 1 20%;
     margin: 5px;
+}
+.search__body .product_slider__item,
+.search__not__result .product_slider__item{
+    flex: 1 1 19.2%;
+    margin: 5px;
+    max-width: 19.2%;
 }
 .product__item__list{
   display: flex;
@@ -3409,7 +3419,10 @@ body{
 }
 
 .slick-slide{
-  height: 430px;
+  max-height: 430px;
+}
+.brands .slick-slide{
+  max-height: 500px;
 }
 
 /* Персональные предложения */
@@ -3578,4 +3591,693 @@ body{
 
 .hidden{
   display: none;
+}
+
+.search__header{
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+  height: 35px;
+}
+
+.search__header .search__appearance{
+  margin-bottom: 0px;
+}
+
+.search__title{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  color: #262424
+}
+
+.search__filter__wrap{
+  position: relative;
+  height: 100%;
+  margin-right: auto;
+}
+
+.search__filter__wrap i{
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 20px;
+  position: absolute;
+  right: 10px;
+  top: 25%;
+}
+
+.search__filter__wrap .fa-chevron-down:before {
+  content: "\f078";
+}
+
+.search__filter{
+  background: #F2F2F2;
+  border-radius: 7px;
+  height: 100%;
+  padding: 0 40px 0 15px;
+  display: flex;
+  align-items: center;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #5F5F5F;
+}
+
+.search__filter option:first-child{
+  display: none;
+}
+
+.search__amount__wrap{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 40px;
+}
+
+.search__amount__text{
+  margin-right: 10px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #5F5F5F;
+}
+
+.search__amount__item{
+  background: #E4E753;
+  border-radius: 7px;
+  width: 45px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.search__amount__item span{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #1B2127;
+}
+
+.search__amount__item__active{
+  background: #1B2127;
+}
+
+.search__amount__item__active span{
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.search__amount__item:last-child{
+  margin-right: 0px;
+}
+
+.search__body{
+  margin-bottom: 50px;
+}
+
+.search__row{
+  background: #FFFFFF;
+  border: 1px solid #5F5F5F;
+  padding: 13px;
+  margin: 40px 0;
+  position: relative;
+}
+
+.search__row input{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #000000;
+  width: 100%;
+}
+
+.search__button{
+  height: 100%;
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+
+.search__row i{
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #5F5F5F;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.search__row input::placeholder {
+  color: #C2C2C2;
+}
+.search__row input::-webkit-input-placeholder {
+  color: #C2C2C2;
+}
+.search__row input::-moz-placeholder {
+  color: #C2C2C2;
+}
+.search__row input:-ms-input-placeholder {
+  color: #C2C2C2;
+}
+
+.search__feedback{
+  background: #F8F8F8;
+  border-radius: 4px;
+  width: 50%;
+  padding: 15px;
+}
+.search__feedback__text{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 35px;
+  color: #C5C900;
+  margin-bottom: 15px;
+}
+.search__feedback__form{
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.search__feedback__form input{
+  background: #FFFFFF;
+  border: 1px solid #5F5F5F;
+  padding: 10px;
+  height: 100%;
+  flex: 0 0 40%;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #000000;
+}
+.search__feedback__form button{
+  background: #E4E753;
+  border-radius: 7px;
+  height: 100%;
+  flex: 0 0 40%;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1B2127;
+}
+.search__feedback__form .img__send{
+  flex: 0 0 15%;
+  text-align: center;
+  
+}
+.search__feedback__form .img__send svg{
+  cursor: pointer;
+}
+#imgSend {
+  display: none;
+}
+.search__offer{
+  margin: 20px 0 40px 0;
+}
+.search__offer__title{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 35px; 
+  color: #5F5F5F;
+  margin-bottom: 20px;
+}
+.search__offer__body{
+  display: flex;
+}
+.account__ordering__item:first-child .account__ordering__body{
+  padding-left: 60px;
+}
+.account__ordering__item{
+  background: #FFFFFF;
+  border: 1px solid #E4E753;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+.account__ordering__item:last-child{
+  margin-bottom: 0px;
+}
+.account__ordering__title{
+  background: #E4E753;
+  border: 1px solid #E4E753;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  color: #5F5F5F;
+  padding: 10px 20px;
+}
+.account__ordering__body{
+  padding: 30px;
+}
+
+.account__ordering__form__item {
+  border: 1px solid #C2C2C2;
+  border-radius: 4px;
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.account__ordering__form__item.required::before {
+  position: absolute;
+  content: "*";
+  font-family: 'Montserrat';
+  font-style: italic;
+  top: -5px;
+  border-radius: 50%;
+  color: red;
+  background: #FFFFFF;
+  width: 10px;
+  height: 10px;
+  line-height: 15px;
+}
+
+.account__ordering__form__item input::placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.account__ordering__form__item input::-webkit-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.account__ordering__form__item input::-moz-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.account__ordering__form__item input:-ms-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+
+.account__ordering__form__item:last-child{
+  margin-bottom: 0px;
+}
+
+.account__ordering__method__wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.account__ordering__method{
+  flex: 0 1 45%;
+  background: #F2F2F2;
+  border-radius: 10px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px 10px 20px;
+  position: relative;
+}
+.account__ordering__method__checked{
+  background: #E4E753;
+}
+.account__ordering__method > input{
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.account__ordering__method .account__ordering__method__text {
+  display: flex;
+  align-items: flex-start;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #5F5F5F;
+}
+.account__ordering__method > svg{
+  max-height: 90%;
+  flex: 0 0 50%;
+  object-fit: contain;
+}
+.account__ordering__method::before {
+  content: '';
+  left: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+}
+.account__ordering__method__checked::before {
+  border-color: #C2C2C2;
+  background-color: #F8F8F8;
+  content: '\f00c';
+  font: var(--fa-font-solid);
+  color: #C5C900;
+  font-size: 13px;
+}
+.account__ordering__method__text__wrap{
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.account__ordering__wrap {
+  display: flex;
+  flex: 0 1 65%;
+  flex-direction: column;
+}
+.account__ordering__body__footer{
+  background: #FFFFFF;
+  border: 1px solid #C5C900;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 20px 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.account__ordering__method__sub,
+.account__ordering__paymethod{
+  flex: 1 1 20%;
+  border-radius: 10px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.account__ordering__body__footer__title{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  color: #5F5F5F;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.account__ordering__method__sub::before,
+.account__ordering__paymethod::before {
+  content: '';
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+}
+.account__ordering__method__sub__checked::before,
+.account__ordering__paymethod__checked::before {
+  border-color: #C2C2C2;
+  background-color: #F8F8F8;
+  content: '\f00c';
+  font: var(--fa-font-solid);
+  color: #C5C900;
+  font-size: 13px;
+}
+.account__ordering__method__sub__text__wrap,
+.account__ordering__paymethod__text__wrap{
+  flex: 1 1 80%;
+  display: flex;
+  justify-content: center;  
+  flex-direction: column;
+}
+.account__ordering__method__sub__text__wrap span,
+.account__ordering__paymethod__text__wrap span{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  color: #5F5F5F;
+  margin-bottom: 5px;
+}
+.account__ordering__method__sub__text__wrap p,
+.account__ordering__paymethod__text__wrap p{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #5F5F5F;
+}
+.account__ordering__paymethod__wrap{
+  display: flex;
+}
+
+.account__ordering__list{
+  display: flex;
+  flex-direction: column;
+}
+.account__ordering__list__header{
+  display: flex;
+  height: 35px;
+  margin-bottom: 10px;
+}
+.account__ordering__list__item{
+  height: 120px;
+  background: #FFFFFF;
+  border: 1px solid #C2C2C2;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 10px;
+}
+.account__ordering__list__item:last-child{
+  margin-bottom: 0px;
+}
+.account__ordering__list__header span{
+  background: #F2F2F2;
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+.account__ordering__list__header span:last-child{
+  margin-right: 0px;
+}
+.account__ordering__list__header span,
+.account__ordering__list__item span{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #262424;
+  text-align: center;
+  padding: 15px;
+}
+.account__ordering__list__item span:nth-child(1){
+  display: flex;
+}
+.account__ordering__list__header span:nth-child(1),
+.account__ordering__list__item span:nth-child(1){
+  width: 40%;
+}
+.account__ordering__list__header span:nth-child(2),
+.account__ordering__list__item span:nth-child(2){
+  width: 10%;
+}
+.account__ordering__list__header span:nth-child(3),
+.account__ordering__list__item span:nth-child(3){
+  width: 20%;
+}
+.account__ordering__list__header span:nth-child(4),
+.account__ordering__list__item span:nth-child(4){
+  width: 10%;
+}
+.account__ordering__list__header span:nth-child(5),
+.account__ordering__list__item span:nth-child(5){
+  width: 20%;
+}
+.account__ordering__list__item img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.account__ordering__list__item b{
+  font-weight: 700;
+}
+.account__ordering__calculation{
+  background: #F8F8F8;
+  border-radius: 4px;
+}
+.account__ordering__calculation__body{
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.account__ordering__calculation__left,
+.account__ordering__calculation__right{
+  width: 47%;
+}
+.account__ordering__calculation__item{
+  background: #F2F2F2;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.account__ordering__calculation__item:last-child{
+  margin-bottom: 0px;
+}
+.account__ordering__calculation__left .account__ordering__calculation__item__name{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #262424;
+}
+.account__ordering__calculation__left .account__ordering__calculation__item__value{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #262424;
+}
+.account__ordering__calculation__right .account__ordering__calculation__item{
+  background: #E4E753;
+}
+.account__ordering__calculation__right .account__ordering__calculation__item:last-child{
+  background: #C5C900;
+}
+.account__ordering__calculation__right .account__ordering__calculation__item__name,
+.account__ordering__calculation__right .account__ordering__calculation__item__value{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #262424;
+}
+.account__ordering__calculation__right .account__ordering__calculation__item:first-child{
+  padding: 0px;
+}
+.account__ordering__calculation__right .account__ordering__calculation__item:first-child .account__ordering__calculation__item__name{
+  padding: 10px 14px;
+}
+.account__ordering__calculation__right .account__ordering__calculation__item:first-child .account__ordering__calculation__item__name,
+.account__ordering__calculation__right .account__ordering__calculation__item:first-child .account__ordering__calculation__item__value{
+  width: 50%;
+}
+.account__ordering__calculation__item input{
+  background: #FFFFFF;
+  border: 1px solid #C5C900;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #5F5F5F;
+  text-align: right;
+}
+.account__ordering__calculation__button{
+  height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1B2127;
+  border-radius: 7px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+#orderMap {
+  width: 100%;
+  height: 350px;
+  margin-bottom: 10px
+}
+#userAdress{
+  width: 100%;
+}
+.account__ordering__method__detailed{
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  color: #C5C900;
+  margin-top: 10px;
+}
+
+.account__ordering__paymethods__body{
+  display: flex;
+  flex-direction: column;
+}
+
+.account__ordering__description{
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  color: #5F5F5F;
+  margin-top: 20px;
+}
+.account__ordering__description__link{
+  color: #E4E753;
 }

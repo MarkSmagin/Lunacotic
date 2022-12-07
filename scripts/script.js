@@ -192,17 +192,6 @@ if($('.about__community__swiper').length){
     $(this).val('');
   });
 
-  // Автозаполнение полей ползунка **На доработку
-  // $('.polzunok-input-wrap input').focusout(function(){
-  //   console.log($(this).val())
-  //   if(!$(this).val()){
-  //     if($(this).hasClass('polzunok-input-5-left')){
-  //       $(this).val('0');
-  //     } else {
-  //       $(this).val('18000');
-  //     }
-  //   }
-  // });
   $(".polzunok-input-5-left").val($(".polzunok-5").slider("values", 0));
   $(".polzunok-input-5-right").val($(".polzunok-5").slider("values", 1));
   $(".polzunok-container-5 input").change(function() {
@@ -244,6 +233,19 @@ if($('.about__community__swiper').length){
   $('.products__appearance span').click(function(){
     $('.products__appearance span').removeClass('active');
     $('.products__body').addClass('hidden');
+    if($(this).hasClass('tile')){
+      $('.tile').removeClass('hidden');
+    } else if($(this).hasClass('list')){
+      $('.list').removeClass('hidden');
+    }
+    $(this).addClass('active');
+    let currentView = $(this).attr('class');
+  })
+
+  // Смена вида расположения товаров в поиске
+  $('.search__appearance span').click(function(){
+    $('.search__appearance span').removeClass('active');
+    $('.search__body').addClass('hidden');
     if($(this).hasClass('tile')){
       $('.tile').removeClass('hidden');
     } else if($(this).hasClass('list')){
@@ -369,5 +371,110 @@ if($('.about__community__swiper').length){
 
   $(document).on('click', '.order__repeat', function(e){
     e.stopPropagation();
+  })
+
+  // Смена количества объектов на странице поиска
+$('.search__amount__item').click(function(){
+  $('.search__amount__item').removeClass('search__amount__item__active');
+  $(this).addClass('search__amount__item__active');
+})
+
+$('.account__ordering__method input').click(function(){
+  $('.account__ordering__method ').removeClass('account__ordering__method__checked');
+  $(this).parent('.account__ordering__method').addClass('account__ordering__method__checked');
+})
+
+$('.account__ordering__method__sub input').click(function(){
+  $('.account__ordering__method__sub').toggleClass('account__ordering__method__sub__checked');
+})
+
+$('.account__ordering__paymethod input').click(function(){
+  $('.account__ordering__paymethod').toggleClass('account__ordering__paymethod__checked');
+})
+
+// Карта на странице оформление заказа
+if($('#orderMap').length){
+  ymaps.ready(orderMapInit);
+  function orderMapInit() {
+    var  myInput = document.getElementById("userAdress"),
+        myPlacemark,
+        myMap = new ymaps.Map('orderMap', {
+            center: [55.796127, 49.106414],
+            zoom: 12
+        }, {
+            searchControlProvider: 'yandex#search'
+        },);
+
+    // Слушаем клик на карте.
+    myMap.events.add('click', function (e) {
+        var coords = e.get('coords');
+
+        // Если метка уже создана – просто передвигаем ее.
+        if (myPlacemark) {
+            myPlacemark.geometry.setCoordinates(coords);
+        }
+        // Если нет – создаем.
+        else {
+            myPlacemark = createPlacemark(coords);
+            myMap.geoObjects.add(myPlacemark);
+            // Слушаем событие окончания перетаскивания на метке.
+            myPlacemark.events.add('dragend', function () {
+                getAddress(myPlacemark.geometry.getCoordinates());
+            });
+        }
+        getAddress(coords);
+    });
+
+    // Создание метки.
+    function createPlacemark(coords) {
+        return new ymaps.Placemark(coords, {
+            iconCaption: 'поиск...'
+        }, {
+            iconLayout: 'default#image',
+            iconImageHref: 'images/map__marker.svg',
+            iconImageSize: [48, 48],
+            draggable: true
+        });
+    }
+
+    // Определяем адрес по координатам (обратное геокодирование).
+    function getAddress(coords) {
+        myPlacemark.properties.set('iconCaption', 'поиск...');
+        ymaps.geocode(coords).then(function (res) {
+            var firstGeoObject = res.geoObjects.get(0),
+                address = firstGeoObject.getAddressLine();
+
+            myPlacemark.properties
+                .set({
+                    // Формируем строку с данными об объекте.
+                    iconCaption: [
+                        // Название населенного пункта или вышестоящее административно-территориальное образование.
+                        firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+                        // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+                        firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+                    ].filter(Boolean).join(', '),
+                    // В качестве контента балуна задаем строку с адресом объекта.
+                    balloonContent: address
+                });
+            myInput.value = address;
+        });
+    }
+  }
+  }
+
+  $('.account__ordering__paymethod input').click(function(){
+    $('.account__ordering__paymethod ').removeClass('account__ordering__paymethod__checked');
+    $(this).parent('.account__ordering__paymethod').addClass('account__ordering__paymethod__checked');
+  })
+
+  $('.account__ordering__method').click(function(){
+    if($(this).children('input').attr('value') === 'delivery'){
+      $('.account__ordering__body__footer').load('delivery__block.html');
+      $('.account__ordering__paymethods .account__ordering__body').load('delivery__paymethods.html');
+
+    } else {
+      $('.account__ordering__body__footer').load('pickup__block.html');
+      $('.account__ordering__paymethods .account__ordering__body').load('pickup__paymethods.html')
+    }
   })
 })
