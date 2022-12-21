@@ -478,3 +478,74 @@ if($('#orderMap').length){
     }
   })
 })
+
+
+$('.account__info__adress__item input').on('click', function(){
+  if(!$(this).attr('checked')){
+    $('.account__info__adress__item input').removeAttr('checked');
+    $(this).attr('checked', 'checked');
+    $('.adress__wrap').removeClass('adress__checked');
+    $(this).parent('.account__info__adress__item').parent('.adress__wrap').addClass('adress__checked');
+  }
+})
+
+$('.account__info__adress__add__out').on('click', function(e){
+  e.preventDefault();
+  $(this).css('display', 'none');
+  $('.add__new__adress').css('display', 'block');
+})
+$('.account__info__adress__add__in').on('click', function(e){
+  e.preventDefault();
+  $('.add__new__adress').css('display', 'none');
+  $('.account__info__adress__add__out').css('display', 'flex');
+})
+
+$('.adress__change').on('click', function(e){
+  e.preventDefault();
+  $('.edit__adress').css('display', 'flex');
+  $('.account__info__adress__add__out').css('display', 'none');
+})
+$('.account__info__adress__save').on('click', function(e){
+  e.preventDefault();
+  $('.edit__adress').css('display', 'none');
+  $('.account__info__adress__add__out').css('display', 'flex');
+})
+
+$('.account__info__adress__delete').on('click',function(e){
+  e.preventDefault();
+})
+
+$('.add__new__pet__form select').on('change', function(){
+  if($(this).val() === ""){
+    $(this).css('color', "#C2C2C2");
+  } else{
+    $(this).css('color', "#262424");
+  }
+})
+
+$('.pet__photo__button').on('change', function(){
+  $('.pet__photo__window p').css('display', 'none');
+  $('.pet__photo__img').css('display', 'block');
+  let file = this.files.item(0);
+  let reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = function(){
+      $('.pet__photo__img').attr('src', `${reader.result}`);
+    }
+});
+
+$('.pet__gender').on('click', function(){
+  $('.pet__gender').removeClass('pet__gender__checked');
+  $('.pet__gender').children("input").removeAttr('checked', 'checked');
+  $(this).addClass('pet__gender__checked');
+  $(this).children("input").attr('checked','checked');
+})
+
+$('.pet__sterilization__castration').on('click', function(){
+  $(this).toggleClass('pet__sterilization__castration__checked');
+  if($(this).hasClass('pet__sterilization__castration__checked')) {
+    $(this).children('input').attr('checked', 'checked');
+  } else {
+    $(this).children('input').removeAttr('checked', 'checked');
+  }
+})

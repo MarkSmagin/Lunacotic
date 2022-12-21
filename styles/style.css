@@ -2583,6 +2583,9 @@ body{
   width: 100%;
 }
 .account__info{
+  width: 100%;
+}
+.profile__middle{
   width: 50%;
 }
 .account__info__item{
@@ -4280,4 +4283,389 @@ body{
 }
 .account__ordering__description__link{
   color: #E4E753;
+}
+
+.adress__checked{
+  border: 1px solid #C5C900;
+}
+
+.account__info__adress__button{
+  background: #1B2127;
+  border-radius: 7px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  cursor: pointer;
+}
+.new__adress__item {
+  border: 1px solid #C2C2C2;
+  border-radius: 4px;
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+.new__adress__item input::placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.new__adress__item input::-webkit-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.new__adress__item input::-moz-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.new__adress__item input:-ms-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.add__new__adress{
+  display: none;
+  background: #FFFFFF;
+  border: 1px solid #C2C2C2;
+  border-radius: 4px;
+  padding: 20px;
+}
+.add__new__adress span{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #5F5F5F;
+  padding-left: 25px;
+}
+.new__adress__item:last-child{
+  margin-bottom: 0px;
+}
+.new__adress__item__required::before {
+  position: absolute;
+  content: "*";
+  font-family: 'Montserrat';
+  font-style: italic;
+  top: -5px;
+  border-radius: 50%;
+  color: red;
+  background: #FFFFFF;
+  width: 10px;
+  height: 10px;
+  line-height: 15px;
+}
+.edit__adress{
+  display: none;
+  background: #FFFFFF;
+  border: 1px solid #C2C2C2;
+  border-radius: 4px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.edit__adress span{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #5F5F5F;
+  padding-left: 25px;
+  align-self: flex-start;
+}
+.edit__adress__item {
+  border: 1px solid #C2C2C2;
+  border-radius: 4px;
+  height: 50px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+}
+.edit__adress__item input::placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.edit__adress__item input::-webkit-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.edit__adress__item input::-moz-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.edit__adress__item input:-ms-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.account__info__adress__delete{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 11px;
+  color: #1B2127;
+  cursor: pointer;
+}
+.account__info__adress__delete:hover{
+  text-decoration: underline;
+}
+.account__info__adress__save{
+  margin-bottom: 10px;
+}
+.my__pets__add{
+  background: #F8F8F8;
+  border: 1px solid #E4E753;
+  border-radius: 4px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.my__pets__add__text__wrap{
+  width: 80%;
+}
+.my__pets__add__title{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  color: #262424;
+  margin-bottom: 10px;
+}
+.my__pets__add__text{
+  list-style-type: disc;
+  margin-left: 20px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 121.15%;
+  color: #262424;
+}
+.my__pets__add__button{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  color: #E4E753;
+  background: #1B2127;
+  border-radius: 10px;
+  height: 50px;
+  width: 17%;
+  margin-left: 20px;
+}
+.add__new__pet__form{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.add__new__pet__item{
+  background: #FFFFFF;
+  border: 1px solid #C2C2C2;
+  box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.add__new__pet__form input,
+.add__new__pet__form span{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #262424;
+}
+.add__new__pet__form select{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.add__new__pet__form__select{
+  position: relative;
+}
+.add__new__pet__form__select::after{
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f078";
+  position: absolute;
+  right: 10px;
+  color: #1B2127;
+}
+.add__new__pet__form option{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #262424;
+}
+.add__new__pet__form option:first-child{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.add__new__pet__form input::placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.add__new__pet__form input::-webkit-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.add__new__pet__form input::-moz-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.add__new__pet__form input:-ms-input-placeholder {
+	font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  color: #C2C2C2;
+}
+.add__new__pet__item select{
+  width: 100%;
+  height: 100%;
+}
+.pet__photo__window{
+  background: #FFFFFF;
+  border: 1px solid #E4E753;
+  border-radius: 4px;
+  width: 240px;
+  height: 240px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.pet__photo__button{
+  display: none;
+}
+.pet__photo__window p{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  color: #C2C2C2;
+}
+.pet__photo__img{
+  display: none;
+}
+.add__new__pet__gender{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.pet__gender,
+.pet__sterilization__castration{
+  position: relative;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.pet__sterilization__castration{
+  margin-bottom: 10px;
+}
+.pet__gender:last-child{
+  margin-left: 40px;
+}
+.pet__gender::before,
+.pet__sterilization__castration::before {
+  content: '';
+  left: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+}
+.pet__gender__checked::before,
+.pet__sterilization__castration__checked::before {
+  border-color: #C2C2C2;
+  background-color: #F8F8F8;
+  content: '\f00c';
+  font: var(--fa-font-solid);
+  color: #C5C900;
+  font-size: 13px;
 }

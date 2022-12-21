@@ -1,28 +1,31 @@
 <div class="account__profile">
-  <form action="" class="account__info">
-    <div class="account__info__item">
-      <input type="text" placeholder="Фамилия">
-    </div>
-    <div class="account__info__item">
-      <input type="text" placeholder="Имя">
-    </div>
-    <div class="account__info__item">
-      <input type="text" placeholder="Отчество">
-    </div>
-    <div class="account__info__item">
-      <input type="email" placeholder="Электронная почта">
-    </div>
-    <div class="account__info__item">
-      <input type="tel" placeholder="+7___ ___ __ __">
-    </div>
-    <button class="account__info__save">сохранить</button>
+  <div class="profile__middle">
+    <form action="" class="account__info">
+      <div class="account__info__item">
+        <input type="text" placeholder="Фамилия">
+      </div>
+      <div class="account__info__item">
+        <input type="text" placeholder="Имя">
+      </div>
+      <div class="account__info__item">
+        <input type="text" placeholder="Отчество">
+      </div>
+      <div class="account__info__item">
+        <input type="email" placeholder="Электронная почта">
+      </div>
+      <div class="account__info__item">
+        <input type="tel" placeholder="+7___ ___ __ __">
+      </div>
+      <button class="account__info__save">сохранить</button>
+    </form>
+
     <div class="account__info__adress">
       <div class="adress__wrap adress__checked">
         <button class="adress__change">
           <img src="images/adress__change.svg" alt="">
         </button>
         <label class="account__info__adress__item">
-          <input type="radio" name="adress" value="current">
+          <input type="radio" name="adress" value="current" checked="checked">
           <span>Текущий адресс</span>
         </label>
         <p class="adress__text">Казань, ул Ново-Булачная 14к3, 9</p>
@@ -37,8 +40,50 @@
         </label>
         <p class="adress__text">Казань, ул Дубравная 20, 84</p>
       </div>
+      <form action="" class="edit__adress">
+        <span>Редактировать адресс</span>
+        <div class="edit__adress__item new__adress__item__required">
+          <input type="text" placeholder="Адресс">
+        </div>
+        <div class="edit__adress__item">
+          <input type="text" placeholder="Подъезд">
+        </div>
+        <div class="edit__adress__item">
+          <input type="text" placeholder="Этаж">
+        </div>
+        <div class="edit__adress__item">
+          <input type="text" placeholder="Код двери">
+        </div>
+        <div class="edit__adress__item">
+          <input type="text" placeholder="Комментарий для службы доставки">
+        </div>
+        <button class="account__info__adress__button account__info__adress__save">сохранить</button>
+        <button class=" account__info__adress__delete">удалить адресс</button>
+      </form>
+      <form action="" class="add__new__adress">
+        <span>Добавить адресс</span>
+        <div class="new__adress__item new__adress__item__required">
+          <input type="text" placeholder="Адресс">
+        </div>
+        <div class="new__adress__item">
+          <input type="text" placeholder="Подъезд">
+        </div>
+        <div class="new__adress__item">
+          <input type="text" placeholder="Этаж">
+        </div>
+        <div class="new__adress__item">
+          <input type="text" placeholder="Код двери">
+        </div>
+        <div class="new__adress__item">
+          <input type="text" placeholder="Комментарий для службы доставки">
+        </div>
+        <button class="account__info__adress__button account__info__adress__add__in">добавить адресс</button>
+      </form>
+      <button class="account__info__adress__button account__info__adress__add__out">добавить адресс</button>
     </div>  
-  </form>
+    
+  </div>
+  
   <div class="account__balance">
     <span>Баланс:</span>
     <span class="balance__value">846</span>
