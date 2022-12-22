@@ -347,7 +347,9 @@ if($('.about__community__swiper').length){
   $('.account__nav__button').click(function(){
     $('.account__nav__button').removeClass('account__nav__button__active');
     $(this).addClass('account__nav__button__active');
-    $('.account__wrap').load(`${$(this).attr('data-name')}.html`);
+    $('.account__wrap').load(`${$(this).attr('data-name')}.html`, function(response, status, xhr){
+      adressMaps();
+    });
   })
 
   // Таблица в личном кабинете
@@ -549,3 +551,50 @@ $('.pet__sterilization__castration').on('click', function(){
     $(this).children('input').removeAttr('checked', 'checked');
   }
 })
+
+const adresses = [
+  {
+    adress: 'Казань, ул Ново-Булачная 14к3'
+  },
+  {
+    adress: 'Казань, ул Волгоградская 28'
+  }
+]
+
+
+function adressMaps(){
+  for (let i = 0; i < adresses.length; i++){
+    fetch('https://geocode-maps.yandex.ru/1.x/?apikey=ada7606d-3795-4d4f-aac7-1508e476e1d4&format=json&geocode=' + adresses[i].adress)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      let adressCoordinates = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.trim().replace(/\s+/g, ' ').split(' ');
+      console.log(adressCoordinates)
+      ymaps.ready(init);
+      function init(){
+          let myMap = new ymaps.Map(`adressMap${i + 1}`, {
+              center: [+adressCoordinates[1], +adressCoordinates[0]],
+              zoom: 16,
+              controls: []
+          },
+          {
+              suppressMapOpenBlock: true
+          }
+          );
+          let myPlacemark = new ymaps.Placemark([+adressCoordinates[1], +adressCoordinates[0]], {
+            hintContent: `${adresses[i].adress}`,
+          }, {
+              iconLayout: 'default#image',
+              iconImageHref: 'images/map__marker.svg',
+              iconImageSize: [48, 48],
+        });
+        myMap.geoObjects.add(myPlacemark);
+      }
+    })
+  }
+}
+
+if($('.account__profile').length){
+  adressMaps();
+}

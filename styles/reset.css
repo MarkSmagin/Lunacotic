@@ -29,11 +29,6 @@
     list-style: none;
   }
   
-  /* For images to not be able to exceed their container */
-  img {
-    max-width: 100%;
-  }
-  
   /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
   input, textarea {
     -webkit-user-select: auto;

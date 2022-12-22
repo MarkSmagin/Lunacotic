@@ -4669,3 +4669,8 @@ body{
   color: #C5C900;
   font-size: 13px;
 }
+.account__adress__map__wrap{
+  width: 100%;
+  height: 250px;
+  margin-top: 15px;
+}

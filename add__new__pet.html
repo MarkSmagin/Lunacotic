@@ -1,0 +1,63 @@
+<form action="" class="add__new__pet__form">
+  <label class="pet__photo__window">
+    <input class="pet__photo__button" type="file" name="pet__photo" multiple accept="image/*,image/jpeg">
+    <img class="pet__photo__img" src="" alt="">
+    <p>Добавьте в эту область фото (png, jpg, jpeg) размером не более 10 мб</p>
+  </label>
+  <div class="add__new__pet__gender">
+    <label class="pet__gender">
+      <input type="radio" name="ordering__method" value="boy">
+      <span class="add__new__pet__gender__text">мальчик</span>
+    </label>
+    <label class="pet__gender">
+      <input type="radio" name="ordering__method" value="girl">
+      <span class="add__new__pet__gender__text">девочка</span>
+    </label>
+  </div>
+
+  <label for="add__new__pet__pets" class="add__new__pet__item add__new__pet__form__select">
+    <select name="add__new__pet__pets" id="petSelect">
+      <option class="add__new__pet__item__placeholder" value="">Выбрать питомца</option>
+      <option value="dog">Собака</option>
+      <option value="cat">Кошка</option>
+      <option value="hamster">Хомяк</option>
+      <option value="fish">Рыбка</option> 
+    </select>
+  </label> 
+  <input class="add__new__pet__name add__new__pet__item" type="text" placeholder="Имя">
+  <label class="add__new__pet__item add__new__pet__form__select">
+    <select name="add__new__pet__breed" id="petBreed">
+      <option value="">Без породы</option>
+    </select>
+  </label>
+  <label class="add__new__pet__item add__new__pet__form__select">
+    <select name="add__new__pet__size" id="petSize">
+      <option value="">Выбрать размер</option>
+      <option value="small">Маленький</option>
+      <option value="medium">Средний</option>
+      <option value="large">Большой</option>
+    </select>
+  </label>
+  <label for="add__new__pet__sterilization__castration" class="pet__sterilization__castration pet__sterilization__castration__checked">
+    <input type="checkbox" name="add__new__pet__sterilization__castration" value="sterilization__castration">
+    <span class="">стерилизация/кастрация</span>
+  </label>
+  <div class="add__new__pet__item add__new__pet__form__select" name="add__new__pet__breed__health" id="petHealth">
+    <label for="seafood__allergy" class="">
+      <input type="checkbox" name="seafood__allergy" value="seafood allergy">
+      <span class="">Аллергия на морепродукты</span>
+    </label>
+    <label for="chicken__allergy" class="">
+      <input type="checkbox" name="chicken__allergy" value="chicken allergy">
+      <span class="">Аллергия на курицу</span>
+    </label>
+  </div>
+  <label for="add__new__pet__sterilization__keeping" class="add__new__pet__item add__new__pet__form__select">
+    <select name="add__new__pet__sterilization__keeping" id="petKeeping">
+      <option value="">Выбрать время на улице</option>
+      <option value="home">Домашнее содержание</option>
+    </select>
+  </label>
+  <input class="add__new__pet__item" type="text" placeholder="DD;MM;YYYY рождения">
+  <button class="add__new__pet__save">сохранить</button>
+</form>

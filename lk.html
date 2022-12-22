@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="scripts/slick/slick.css">
+    <script src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://api-maps.yandex.ru/1.1/_YMaps.css?v=0.2.12">
+    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/1.1/_YMaps.js?v=0.2.12"></script>
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
@@ -138,69 +141,99 @@
             <button class="account__nav__button">персональные предложения</button>
           </div>
           <div class="account__wrap">
-            <form action="" class="add__new__pet__form">
-              <label class="pet__photo__window">
-                <input class="pet__photo__button" type="file" name="pet__photo" multiple accept="image/*,image/jpeg">
-                <img class="pet__photo__img" src="" alt="">
-                <p>Добавьте в эту область фото (png, jpg, jpeg) размером не более 10 мб</p>
-              </label>
-              <div class="add__new__pet__gender">
-                <label class="pet__gender">
-                  <input type="radio" name="ordering__method" value="boy">
-                  <span class="add__new__pet__gender__text">мальчик</span>
-                </label>
-                <label class="pet__gender">
-                  <input type="radio" name="ordering__method" value="girl">
-                  <span class="add__new__pet__gender__text">девочка</span>
-                </label>
+            <div class="account__profile">
+              <div class="profile__middle">
+                <form action="" class="account__info">
+                  <div class="account__info__item">
+                    <input type="text" placeholder="Фамилия">
+                  </div>
+                  <div class="account__info__item">
+                    <input type="text" placeholder="Имя">
+                  </div>
+                  <div class="account__info__item">
+                    <input type="text" placeholder="Отчество">
+                  </div>
+                  <div class="account__info__item">
+                    <input type="email" placeholder="Электронная почта">
+                  </div>
+                  <div class="account__info__item">
+                    <input type="tel" placeholder="+7___ ___ __ __">
+                  </div>
+                  <button class="account__info__save">сохранить</button>
+                </form>
+            
+                <div class="account__info__adress">
+                  <div class="adress__wrap adress__checked">
+                    <button class="adress__change">
+                      <img src="images/adress__change.svg" alt="">
+                    </button>
+                    <label class="account__info__adress__item">
+                      <input type="radio" name="adress" value="current" checked="checked">
+                      <span>Текущий адресс</span>
+                    </label>
+                    <p class="adress__text">Казань, ул Ново-Булачная 14к3, 9</p>
+                    <div id="adressMap1" class="account__adress__map__wrap"></div>
+                  </div>
+                  <div class="adress__wrap">
+                    <button class="adress__change">
+                      <img src="images/adress__change.svg" alt="">
+                    </button>
+                    <label class="account__info__adress__item">
+                      <input type="radio" name="adress" value="additional">
+                      <span>Второй адресс</span>
+                    </label>
+                    <p class="adress__text">Казань, ул Дубравная 20, 84</p>
+                    <div class="account__adress__map__wrap" id="adressMap2"></div>
+                  </div>
+                  <form action="" class="edit__adress">
+                    <span>Редактировать адресс</span>
+                    <div class="edit__adress__item new__adress__item__required">
+                      <input type="text" placeholder="Адресс">
+                    </div>
+                    <div class="edit__adress__item">
+                      <input type="text" placeholder="Подъезд">
+                    </div>
+                    <div class="edit__adress__item">
+                      <input type="text" placeholder="Этаж">
+                    </div>
+                    <div class="edit__adress__item">
+                      <input type="text" placeholder="Код двери">
+                    </div>
+                    <div class="edit__adress__item">
+                      <input type="text" placeholder="Комментарий для службы доставки">
+                    </div>
+                    <button class="account__info__adress__button account__info__adress__save">сохранить</button>
+                    <button class=" account__info__adress__delete">удалить адресс</button>
+                  </form>
+                  <form action="" class="add__new__adress">
+                    <span>Добавить адресс</span>
+                    <div class="new__adress__item new__adress__item__required">
+                      <input type="text" placeholder="Адресс">
+                    </div>
+                    <div class="new__adress__item">
+                      <input type="text" placeholder="Подъезд">
+                    </div>
+                    <div class="new__adress__item">
+                      <input type="text" placeholder="Этаж">
+                    </div>
+                    <div class="new__adress__item">
+                      <input type="text" placeholder="Код двери">
+                    </div>
+                    <div class="new__adress__item">
+                      <input type="text" placeholder="Комментарий для службы доставки">
+                    </div>
+                    <button class="account__info__adress__button account__info__adress__add__in">добавить адресс</button>
+                  </form>
+                  <button class="account__info__adress__button account__info__adress__add__out">добавить адресс</button>
+                </div>  
+                
               </div>
-
-              <label for="add__new__pet__pets" class="add__new__pet__item add__new__pet__form__select">
-                <select name="add__new__pet__pets" id="petSelect">
-                  <option class="add__new__pet__item__placeholder" value="">Выбрать питомца</option>
-                  <option value="dog">Собака</option>
-                  <option value="cat">Кошка</option>
-                  <option value="hamster">Хомяк</option>
-                  <option value="fish">Рыбка</option> 
-                </select>
-              </label> 
-              <input class="add__new__pet__name add__new__pet__item" type="text" placeholder="Имя">
-              <label class="add__new__pet__item add__new__pet__form__select">
-                <select name="add__new__pet__breed" id="petBreed">
-                  <option value="">Без породы</option>
-                </select>
-              </label>
-              <label class="add__new__pet__item add__new__pet__form__select">
-                <select name="add__new__pet__size" id="petSize">
-                  <option value="">Выбрать размер</option>
-                  <option value="small">Маленький</option>
-                  <option value="medium">Средний</option>
-                  <option value="large">Большой</option>
-                </select>
-              </label>
-              <label for="add__new__pet__sterilization__castration" class="pet__sterilization__castration pet__sterilization__castration__checked">
-                <input type="checkbox" name="add__new__pet__sterilization__castration" value="sterilization__castration">
-                <span class="">стерилизация/кастрация</span>
-              </label>
-              <div class="add__new__pet__item add__new__pet__form__select" name="add__new__pet__breed__health" id="petHealth">
-                <label for="seafood__allergy" class="">
-                  <input type="checkbox" name="seafood__allergy" value="seafood allergy">
-                  <span class="">Аллергия на морепродукты</span>
-                </label>
-                <label for="chicken__allergy" class="">
-                  <input type="checkbox" name="chicken__allergy" value="chicken allergy">
-                  <span class="">Аллергия на курицу</span>
-                </label>
+              
+              <div class="account__balance">
+                <span>Баланс:</span>
+                <span class="balance__value">846</span>
               </div>
-              <label for="add__new__pet__sterilization__keeping" class="add__new__pet__item add__new__pet__form__select">
-                <select name="add__new__pet__sterilization__keeping" id="petKeeping">
-                  <option value="">Выбрать время на улице</option>
-                  <option value="home">Домашнее содержание</option>
-                </select>
-              </label>
-              <input class="add__new__pet__item" type="text" placeholder="DD;MM;YYYY рождения">
-              <button class="add__new__pet__save">сохранить</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
