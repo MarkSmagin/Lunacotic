@@ -570,7 +570,6 @@ function adressMaps(){
     })
     .then((data) => {
       let adressCoordinates = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.trim().replace(/\s+/g, ' ').split(' ');
-      console.log(adressCoordinates)
       ymaps.ready(init);
       function init(){
           let myMap = new ymaps.Map(`adressMap${i + 1}`, {
